@@ -3,22 +3,290 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
+/* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 15px;
+    padding: 8px;
+}
+
+input[type=text], select {
+    height: 1px;
+    padding: 12px 20px;
+    margin-left: 50px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.textinput, select {
+    height: 1px;
+    padding: 12px 20px;
+    margin-left: 50px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=datetime-local], select {
+    height: 1px;
+    padding: 12px 20px;
+    margin-left: 50px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=date], select {
+    height: 1px;
+    padding: 12px 20px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.checkboxThree {
+    width: 100px;
+    height: 20px;
+    background: white;
+    margin: 0 40px 15px;
+    border-radius: 4px;
+    position: relative;
+}
+
+    .checkboxThree:before {
+        content: 'yes';
+        position: absolute;
+        top: 6px;
+        left: 13px;
+        height: 1px;
+        color: #26ca28;
+        font-size: 12px;
+    }
+
+    .checkboxThree:after {
+        content: 'no';
+        position: absolute;
+        top: 6px;
+        left: 84px;
+        height: 1px;
+        color: #111;
+        font-size: 12px;
+    }
+
+    .checkboxThree label {
+        display: block;
+        width: 52px;
+        height: 13px;
+        border-radius: 4px;
+        transition: all .5s ease;
+        cursor: pointer;
+        position: absolute;
+        top: 9px;
+        z-index: 1;
+        left: 12px;
+        background: #ddd;
+    }
+
+    /**
+ * Create the checkbox event for the label
+ */
+    .checkboxThree input[type=checkbox]:checked + label {
+        left: 60px;
+        background: #26ca28;
+    }
+
+.button {
+    background-color: white;
+    color: black;
+    border: 1px solid #555555;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+    .button:active {
+        background-color: #26ca28;
+        color: black;
+        border: 1px solid #26ca28;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+
+    .button:focus {
+        background-color: #26ca28;
+        color: black;
+        border: 1px solid #26ca28;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+
+input[type="button"] {
+    outline: none;
+}
+
+input[type="submit"] {
+    outline: none;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+/*** Table Styles **/
+
+.table-fill {
+    background: white;
+    border-collapse: collapse;
+    padding: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+}
+
+th.table-fill {
+    color: #D5DDE5;
+    background: #333333;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 18px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+
+th:first-child.table-fill {
+    border-top-left-radius: 3px;
+}
+
+th:last-child.table-fill {
+    border-top-right-radius: 3px;
+    border-right: none;
+}
+
+tr.table-fill {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    color: #666B85;
+    font-size: 12px;
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+tr:hover td.table-fill {
+    background: #4E5066;
+    color: #FFFFFF;
+    border-top: 1px solid #22262e;
+}
+
+tr:first-child.table-fill {
+    border-top: none;
+}
+
+tr:last-child.table-fill {
+    border-bottom: none;
+}
+
+tr:nth-child(odd) td.table-fill {
+    background: #EBEBEB;
+}
+
+tr:nth-child(odd):hover td.table-fill {
+    background: #4E5066;
+}
+
+tr:last-child td:first-child.table-fill {
+    border-bottom-left-radius: 3px;
+}
+
+tr:last-child td:last-child.table-fill {
+    border-bottom-right-radius: 3px;
+}
+
+td.table-fill {
+    background: #FFFFFF;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 13px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+td:last-child.table-fill {
+    border-right: 0px;
+}
+
+th.text-left.table-fill {
+    text-align: left;
+}
+
+th.text-center.table-fill {
+    text-align: center;
+}
+
+th.text-right.table-fill {
+    text-align: right;
+}
+
+td.text-left.table-fill {
+    text-align: left;
+}
+
+td.text-center.table-fill {
+    text-align: center;
+}
+
+td.text-right.table-fill {
+    text-align: right;
+}
+
+.myBox {
+    border: none;
+    padding: 5px;
+    width: auto;
+    height: 600px;
+    overflow: auto;
 }
