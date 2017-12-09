@@ -19,10 +19,15 @@ namespace AzureMediaService.Controllers
         public ActionResult Index(string playMedia)
         {
             var uri = GetUri(playMedia);
-            return View();
+            
+            return View(new MediaContentModel
+            {
+                MediaName = playMedia.Replace("-", " "),
+                MediaFilePath = uri
+            });
         }
 
-        private Uri GetUri(string fileName)
+        private string GetUri(string fileName)
         {
             var storageAccount = CloudStorageAccount.Parse(_mediaServiceStorage);
             var tableClient = storageAccount.CreateCloudTableClient();
@@ -31,7 +36,7 @@ namespace AzureMediaService.Controllers
             var tableOperation = new TableQuery<MediaContentEntity>();
             var mediaList = table.ExecuteQuery(tableOperation).FirstOrDefault(n=>n.PartitionKey == fileName).UriSmoothStreaming;
 
-            return new Uri(mediaList);
+            return mediaList;
         }
     }
 }

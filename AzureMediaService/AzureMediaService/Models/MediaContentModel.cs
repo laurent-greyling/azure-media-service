@@ -7,7 +7,7 @@ namespace AzureMediaService.Models
     {
         public string MediaName { get; set; }
 
-        public string MediaFileLocalPath { get; set; }
+        public string MediaFilePath { get; set; }
 
         public List<MediaContentEntity> ContentList { get; set; }
     }

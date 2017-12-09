@@ -33,7 +33,7 @@ namespace AzureMediaService.Controllers
 
             _context = new CloudMediaContext(new Uri(_mediaServiceRestapiEndpoint), tokenProvider);
 
-            var asset = UploadFile(mediaContent.MediaFileLocalPath, AssetCreationOptions.None);
+            var asset = UploadFile(mediaContent.MediaFilePath, AssetCreationOptions.None);
 
             var encodedAsset = EncodeToAdaptiveBitrateMp4(asset, AssetCreationOptions.None);
 
