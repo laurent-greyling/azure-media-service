@@ -5,7 +5,9 @@
     ViewBag.Title = "Home Page";
 }
 
-@using (Html.BeginForm("Create", "EncodeMedia"))
+
+
+@using (Html.BeginForm("Create", "Home"))
 {
     <div id="connectionStrings" class="card">
         <h4>Upload Media File</h4>
@@ -18,7 +20,7 @@
                     <label>Asset Name:</label>
                 </td>
                 <td>
-                    @Html.TextBoxFor(model => model.MediaName, new {@class = "form-control", Required = "Required"})
+                    @Html.TextBoxFor(model => model.MediaName, new { @class = "form-control", Required = "Required" })
                 </td>
             </tr>
             <tr>
@@ -26,11 +28,34 @@
                     <label>Local Path:</label>
                 </td>
                 <td>
-                    @Html.TextBoxFor(model => model.MediaFileLocalPath, new {@class = "form-control", Required = "Required"})
+                    @Html.TextBoxFor(model => model.MediaFileLocalPath, new { @class = "form-control", Required = "Required" })
                 </td>
             </tr>
         </table>
 
         <input id="backup" type="submit" value="Submit" class="button" name="Start" />
     </div>
+}
+
+@using (Html.BeginForm("Index", "PlayMedia", FormMethod.Post))
+{
+<div class="card">
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="text-left table-fill">Media Name</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover table-fill">
+            @foreach (var m in Model.ContentList)
+            {
+                <tr>
+                    <td class="text-center table-fill">                       
+                        <input type="submit" class="button" value="@m.PartitionKey" name="playMedia" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 }

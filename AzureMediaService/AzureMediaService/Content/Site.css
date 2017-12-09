@@ -148,6 +148,7 @@ input[type=checkbox] {
     font-size: 15px;
 }
 
+
     .button:active {
         background-color: #26ca28;
         color: black;
@@ -163,7 +164,6 @@ input[type=checkbox] {
         border-radius: 20px;
         font-size: 15px;
     }
-
 input[type="button"] {
     outline: none;
 }
