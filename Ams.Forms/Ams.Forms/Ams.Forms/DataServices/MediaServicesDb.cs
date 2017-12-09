@@ -37,7 +37,7 @@ namespace Ams.Forms.DataServices
             var azure = content.Select(x => x.MediaName).ToList();
             var forms = currentContents.Select(x => x.MediaName).ToList();
             
-            var newItems = forms.Except(azure);
+            var newItems = azure.Except(forms);
             
             if (newItems.Count() > 0)
             {

@@ -4,7 +4,8 @@
              x:Class="Ams.Forms.Views.MediaContentListPage"
              Title="Media List">
     <ContentPage.Content>
-            <ScrollView Padding="5,5,5,5" BackgroundColor="WhiteSmoke">
+        <StackLayout>
+        <ScrollView Padding="5,5,5,5" BackgroundColor="WhiteSmoke">
                 <StackLayout BackgroundColor="WhiteSmoke">
                     <ListView ItemsSource="{Binding MediaContent}" RowHeight="52" CachingStrategy="RecycleElement" ItemTapped="Handle_Tapped">
                         <ListView.ItemTemplate>
@@ -24,5 +25,7 @@
                     </ListView>
                 </StackLayout>
             </ScrollView>
+            <Button Text="Refresh" Clicked="Refresh"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
