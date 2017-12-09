@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ams.Forms.Views.MediaContentListPage"
+             Title="Media List">
+    <ContentPage.Content>
+            <ScrollView Padding="5,5,5,5" BackgroundColor="WhiteSmoke">
+                <StackLayout BackgroundColor="WhiteSmoke">
+                    <ListView ItemsSource="{Binding MediaContent}" RowHeight="52" CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Frame HeightRequest="50" Padding="5,0,0,0">
+                                            <StackLayout>
+                                                <Label Text="{Binding MediaName}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                                            </StackLayout>
+                                        </Frame>
+                                        <Label Grid.Row="2" HeightRequest="2" BackgroundColor="WhiteSmoke"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
