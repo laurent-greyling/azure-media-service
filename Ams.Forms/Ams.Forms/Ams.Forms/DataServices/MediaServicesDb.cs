@@ -34,19 +34,32 @@ namespace Ams.Forms.DataServices
                 return;
             }
 
-            var newItems = new List<MediaContentModel>();
-            foreach (var item in content)
+            var azure = content.Select(x => x.MediaName).ToList();
+            var forms = currentContents.Select(x => x.MediaName).ToList();
+            
+            var newItems = forms.Except(azure);
+            
+            if (newItems.Count() > 0)
             {
-                foreach (var mediaContent in currentContents)
+                var addItems = new List<MediaContentModel>();
+                foreach (var item in newItems)
                 {
-                    if (mediaContent.MediaName == item.MediaName)
-                        continue;
+                    var itemsToAdd = content.Where(n => n.MediaName == item).ToList();
 
-                    newItems.Add(item);
+                    foreach (var mediaItem in itemsToAdd)
+                    {
+                        var newMedia = new MediaContentModel
+                        {
+                            MediaName = mediaItem.MediaName,
+                            MediaUri = mediaItem.MediaUri
+                        };
+
+                        addItems.Add(newMedia);
+                    }
                 }
 
-                _connection.InsertAll(newItems);
-            }
+                _connection.InsertAll(addItems);
+            }                    
         }
 
         public void RemoveContent(string name)

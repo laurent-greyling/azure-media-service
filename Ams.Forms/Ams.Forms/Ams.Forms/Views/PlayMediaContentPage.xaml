@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ams.Forms.Views.PlayMediaContentPage"
+             xmlns:o="clr-namespace:Xamarians.MediaPlayer;assembly=Xamarians.MediaPlayer"
+             Title="{Binding MediaFileName}">
+    <ContentPage.Content>
+        <o:VideoPlayer Source="{Binding MediaUri}" AutoPlay="True"/>
+    </ContentPage.Content>
+</ContentPage>

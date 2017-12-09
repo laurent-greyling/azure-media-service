@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Threading.Tasks;
 
 namespace Ams.Forms.Views
 {
@@ -21,5 +22,15 @@ namespace Ams.Forms.Views
 
             BindingContext = this;
 		}
-	}
+        
+        public async Task Handle_Tapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item == null)
+                return;
+
+            var selected = e.Item as MediaContentModel;
+
+            await Navigation.PushAsync(new PlayMediaContentPage(selected.MediaName, selected.MediaUri));
+        }
+    }
 }
