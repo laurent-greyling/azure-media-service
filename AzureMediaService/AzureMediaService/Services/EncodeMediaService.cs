@@ -21,12 +21,14 @@ namespace AzureMediaService.Controllers
         //service context
         private static CloudMediaContext _context;
 
+        //Encoding standards to use
         private const string StandardEncoder = "Media Encoder Standard";
         private const string Bitrate = "H264 Multiple Bitrate 720p";
         private const string AdaptiveBitrate = "Adaptive Bitrate MP4";
 
         public void Execute(MediaContentModel mediaContent)
         {
+            //This is needed to login to Azure for AMS to encode and save assets into blob
             var tokenCredentials =
                 new AzureAdTokenCredentials(_aAdTenantDomain, AzureEnvironments.AzureCloudEnvironment);
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
@@ -100,7 +102,7 @@ namespace AzureMediaService.Controllers
             );
 
             // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
-            // and the Progressive Download URL.
+            // and the Progressive Download URL and save them to Table storage.
             var assetContent = new MediaContentEntity
             {
                 PartitionKey = mediaContent.MediaName.Trim().Replace(" ", "-"),
