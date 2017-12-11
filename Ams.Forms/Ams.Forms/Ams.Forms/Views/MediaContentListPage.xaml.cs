@@ -20,7 +20,6 @@ namespace Ams.Forms.Views
         public List<MediaContentModel> MediaContent { get; set; }
         public MediaContentListPage()
 		{
-            //TODO: Not best solution, till i can figure out how, this will have to do
             BindingContext = null;
 
             InitializeComponent();
